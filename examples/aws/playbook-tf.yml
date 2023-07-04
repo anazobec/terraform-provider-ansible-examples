@@ -22,22 +22,22 @@
         project_path: "."
       register: tf_info
 
-    - name: Install nginx on hosts from Terraform
-      hosts: "{{ tf_info.hosts }}"
-      become: true
-      gather_facts: false
+- name: Install nginx on hosts from Terraform
+  hosts: "{{ tf_info.hosts }}"
+  become: true
+  gather_facts: true
 
-      task:
-        - wait_for_connection:
+  tasks:
+    - wait_for_connection:
 
-        - setup:
+    - setup:
 
-        - name: Install nginx
-          package:
-            name: nginx
-            state: present
+    - name: Install nginx
+      package:
+        name: nginx
+        state: present
 
-        - name: Start nginx
-          service:
-            name: nginx
-            state: started
+    - name: Start nginx
+      service:
+        name: nginx
+        state: started
