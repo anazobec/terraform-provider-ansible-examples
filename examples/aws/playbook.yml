@@ -6,11 +6,10 @@
   tasks:
     - name: Terraform init & apply
       community.general.terraform:
-        project_path: "."
+        project_path: "./"
         force_init: true
-        force_apply: true
         state: present
-        
+
 
 - name: Install nginx on hosts from Terraform
   hosts: nginx
