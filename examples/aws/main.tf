@@ -85,6 +85,7 @@ resource "ansible_host" "my_ec2" {
 }
 
 # Configure ansible playbook
+/*
 resource "ansible_playbook" "my_playbook" {
   ansible_playbook_binary = "ansible-playbook"  # optional
   playbook                = "playbook.yml"
@@ -100,4 +101,4 @@ resource "ansible_playbook" "my_playbook" {
   }
 
   replayable = true  # ensures that the playbook runs on every apply
-}
+}*/
