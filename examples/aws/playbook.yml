@@ -1,7 +1,7 @@
 ---
 - name: Install nginx on remote host
-  hosts: nginx
-  become: true
+  # hosts: nginx
+  # become: true
   gather_facts: false
   tasks:
     - wait_for_connection:
