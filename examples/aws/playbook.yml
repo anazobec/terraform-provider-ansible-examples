@@ -22,6 +22,7 @@
         project_path: "."
       register: tf_info
 
+
 - name: Install nginx on hosts from Terraform
   hosts: "{{ tf_info.hosts }}"
   become: true
