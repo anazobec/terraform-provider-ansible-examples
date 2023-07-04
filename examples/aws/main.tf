@@ -83,22 +83,3 @@ resource "ansible_host" "my_ec2" {
     ansible_python_interpreter   = "/usr/bin/python3",
   }
 }
-
-# Configure ansible playbook
-/*
-resource "ansible_playbook" "my_playbook" {
-  ansible_playbook_binary = "ansible-playbook"  # optional
-  playbook                = "playbook.yml"
-
-  # Inventory for playbook
-  name = "nginx" # hostname
-
-  extra_vars = {
-    ansible_host = "nginx",
-    ansible_become = true,  # if this fails, try 'ansible_become_user = "root"'
-
-    inventory_file = "./inventory.yml"  # inventory files with a "cloud.terraform.terraform_provivder" plugin
-  }
-
-  replayable = true  # ensures that the playbook runs on every apply
-}*/
