@@ -5,14 +5,18 @@
 
   tasks:
     - name: Terraform init & apply
-      community.general.terraform:
+      cloud.terraform.terraform:
         project_path: "./"
         force_init: true
         state: present
 
+    - name: Refresh inventory
+      ansible.builtin.meta: refresh_inventory
+
 
 - name: Install nginx on hosts from Terraform
   hosts: nginx
+  connection: docker
   become: true
   gather_facts: true
 
@@ -22,11 +26,11 @@
     - setup:
 
     - name: Install nginx
-      package:
+      ansible.builtin.package:
         name: nginx
         state: present
 
     - name: Start nginx
-      service:
+      ansible.builtin.service:
         name: nginx
         state: started
